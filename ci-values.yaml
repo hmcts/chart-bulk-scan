@@ -1,0 +1,3 @@
+global:
+  idamApiUrl: idam-api.aat.platform.hmcts.net
+  idamWebUrl: idam-web-public.aat.platform.hmcts.net
