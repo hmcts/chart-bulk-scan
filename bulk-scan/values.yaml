@@ -46,8 +46,8 @@ bulk-scan-processor:
       FLYWAY_NOOP_STRATEGY: "false"
       PROCESS_PAYMENTS_ENABLED: "false"
       S2S_SECRET: AAAAAAAAAAAAAAAA
-      S2S_URL: "{{ .Values.global.s2sUrl }}"
-      DOCUMENT_MANAGEMENT_URL: "{{ .Values.global.dmStoreUrl }}"
+      S2S_URL: "{{ .Release.Name }}-s2s"
+      DOCUMENT_MANAGEMENT_URL: "{{ .Release.Name }}-dm-store"
       DELETE_REJECTED_FILES_ENABLED: "false"
   servicebus:
     nameoverdide:
@@ -87,22 +87,11 @@ bulk-scan-orchestrator:
       DELETE_ENVELOPES_DLQ_MESSAGES_ENABLED: "true"
       DELETE_ENVELOPES_DLQ_MESSAGES_CRON: "0 * * * * *"
       DELETE_ENVELOPES_DLQ_MESSAGES_TTL: "10s"
-      S2S_URL: "{{ .Values.global.s2sUrl }}"
+      S2S_URL: "{{ .Release.Name }}-s2s"
       IDAM_API_URL: "{{ .Values.global.idamApiUrl }}"
       IDAM_CLIENT_REDIRECT_URI: "{{ .Values.global.bsoIdamRedirectUrl }}"
       CORE_CASE_DATA_API_URL: "{{ .Values.global.ccdDataStoreUrl }}"
-      DOCUMENT_MANAGEMENT_URL: "{{ .Values.global.dmStoreUrl }}"
-    keyVaults:
-      bulk-scan:
-        resourceGroup: bulk-scan
-        secrets:
-          - idam-client-secret
-          - idam-users-bulkscan-username
-          - idam-users-bulkscan-password
-      s2s:
-        resourceGroup: rpe-service-auth-provider
-        secrets:
-          - microservicekey-bulk-scan-orchestrator
+      DOCUMENT_MANAGEMENT_URL: "{{ .Release.Name }}-dm-store"
   servicebus:
     resourceGroup: bulk-scan-aks
     teamName: "Software Engineering"
@@ -119,7 +108,7 @@ rpe-service-auth-provider:
   java:
     ingressHost: ""
     image: hmctspublic.azurecr.io/rpe/service-auth-provider:latest
-    releaseNameOverride: rpe-service-auth-provider
+    releaseNameOverride: "{{ .Release.Name }}-s2s"
     environment:
       TESTING_SUPPORT_ENABLED: 'true'
       MICROSERVICEKEYS_BULK_SCAN_PROCESSOR: AAAAAAAAAAAAAAAA
@@ -127,7 +116,7 @@ rpe-service-auth-provider:
 
 dm-store:
   java:
-    releaseNameOverride: dm-store
+    releaseNameOverride: "{{ .Release.Name}}-dm-store"
     readinessDelay: 180
     livenessDelay: 180
     secrets:
@@ -148,7 +137,7 @@ dm-store:
       POSTGRES_STORAGE_ENABLED: 'true'
       STORAGEACCOUNT_PRIMARY_CONNECTION_STRING: 'DefaultEndpointsProtocol=https;AccountName=AAAAAAAAAAAAAAAA;AccountKey=AAAAAAAAAAAAAAAA;EndpointSuffix=core.windows.net'
       IDAM_USER_BASE_URI: '{{ .Values.global.idamApiUrl }}'
-      IDAM_S2S_BASE_URI: '{{ .Values.global.s2sUrl }}'
+      IDAM_S2S_BASE_URI: '{{ .Release.Name }}-s2s'
 postgresql:
   fullnameOverride: bsp-postgresql
   persistence:
@@ -180,13 +169,4 @@ global:
   devMode: true
   postgresqlUsername: hmcts
   postgresqlPassword: hmcts
-  bulkscanpostgreshost: "{{ .Release.Name }}-bsp-postgresql"
-  s2sUrl: "http://rpe-service-auth-provider"
-  dmStoreUrl: "http://dm-store"
-  ccdDataStoreUrl: "http://ccd-data-store-api"
-  idamApiUrl: "https://idam-api.aat.platform.hmcts.net"
   bsoIdamRedirectUrl: "https://bulk-scan-orchestrator/oauth2/callback"
-ccd:
-  draft-store-service:
-    java:
-      ingressHost: ""

@@ -1,9 +1,9 @@
 dependencies:
   - name: bulk-scan-processor
-    version: ~0.2.2
+    version: ~0.2.3
     repository: '@hmctspublic'
   - name: bulk-scan-orchestrator
-    version: ~0.1.5
+    version: ~0.1.6
     repository: '@hmctspublic'
   - name: rpe-service-auth-provider
     version: ~0.2.4
@@ -18,6 +18,6 @@ dependencies:
     repository: '@hmctspublic'
     condition: bulkscan.dmStore.enabled
   - name: ccd
-    version: ~4.0.1-alpha
+    version: 4.0.1-alpha
     repository: '@hmctspublic'
     condition: bulkscan.ccd.enabled

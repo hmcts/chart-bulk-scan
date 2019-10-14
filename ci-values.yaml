@@ -1,3 +1,24 @@
 global:
-  idamApiUrl: idam-api.aat.platform.hmcts.net
+  idamApiUrl: "https://idam-api.aat.platform.hmcts.net"
   idamWebUrl: idam-web-public.aat.platform.hmcts.net
+  ccdDataStoreUrl: "http://ccd-data-store"
+bulkscan:
+  ccd:
+    enabled: true
+ccd-case-print-service:
+  enabled: false
+ccd-case-activity-api:
+  enabled: false
+ccd-test-stubs-service:
+  enabled: false
+ccd-api-gateway-web:
+  enabled: false
+ccd-admin-web:
+  enabled: false
+ccd-case-management-web:
+  enabled: false
+ccd:
+  draftStoreService:
+    enabled: false
+  paymentApi:
+    enabled: false
