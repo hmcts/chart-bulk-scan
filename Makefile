@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := all
 CHART := bulk-scan
-RELEASE := chart-${CHART}-release6
+RELEASE := chart-${CHART}-release
 NAMESPACE := chart-tests
 TEST := ${RELEASE}-test-service
 ACR := hmctspublic
