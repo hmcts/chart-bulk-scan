@@ -18,6 +18,6 @@ dependencies:
     repository: '@hmctspublic'
     condition: bulkscan.dmStore.enabled
   - name: ccd
-    version: 4.0.1-alpha
+    version: 4.0.2-alpha
     repository: '@hmctspublic'
     condition: bulkscan.ccd.enabled

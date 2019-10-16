@@ -2,23 +2,38 @@ global:
   idamApiUrl: "https://idam-api.aat.platform.hmcts.net"
   idamWebUrl: idam-web-public.aat.platform.hmcts.net
   ccdDataStoreUrl: "http://ccd-data-store"
-bulkscan:
-  ccd:
-    enabled: true
-ccd-case-print-service:
-  enabled: false
-ccd-case-activity-api:
-  enabled: false
-ccd-test-stubs-service:
-  enabled: false
-ccd-api-gateway-web:
-  enabled: false
-ccd-admin-web:
-  enabled: false
-ccd-case-management-web:
-  enabled: false
 ccd:
+  postgresql:
+    enabled: false
+  rpeServiceAuthProvider:
+    enabled: true
   draftStoreService:
+    enabled: false
+  dmStore:
     enabled: false
   paymentApi:
     enabled: false
+  managementWeb:
+    enabled: false
+  apiGatewayWeb:
+    enabled: false
+  adminWeb:
+    enabled: false
+  printService:
+    enabled: false
+  activityApi:
+    enabled: false
+  testStubsService:
+    enabled: false
+bulkscan:
+  ccd:
+    enabled: true
+postgresql:
+  initdbScripts:
+    init.sql: |-
+      CREATE DATABASE "data-store" WITH OWNER = hmcts ENCODING = 'UTF-8' CONNECTION LIMIT = -1;
+      CREATE DATABASE "definition-store" WITH OWNER = hmcts ENCODING = 'UTF-8' CONNECTION LIMIT = -1;
+      CREATE DATABASE "user-profile" WITH OWNER = hmcts ENCODING = 'UTF-8' CONNECTION LIMIT = -1;
+      CREATE DATABASE "draftstore" WITH OWNER = hmcts ENCODING = 'UTF-8' CONNECTION LIMIT = -1;
+      CREATE DATABASE "payment_api" WITH OWNER = hmcts ENCODING = 'UTF-8' CONNECTION LIMIT = -1;
+      CREATE DATABASE "evidence" WITH OWNER = hmcts ENCODING = 'UTF-8' CONNECTION LIMIT = -1;

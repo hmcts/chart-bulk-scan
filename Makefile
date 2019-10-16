@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := all
 CHART := bulk-scan
-RELEASE := chart-${CHART}-release
+RELEASE := chart-${CHART}-release6
 NAMESPACE := chart-tests
 TEST := ${RELEASE}-test-service
 ACR := hmctspublic
@@ -23,6 +23,9 @@ lint:
 
 deploy:
 	helm install ${CHART} --name ${RELEASE} --namespace ${NAMESPACE} -f ci-values.yaml --wait --timeout 600
+
+upgrade:
+	helm upgrade --install ${RELEASE} ${CHART}  --namespace ${NAMESPACE} -f ci-values.yaml --wait --timeout 600
 
 test:
 	helm test ${RELEASE}

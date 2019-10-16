@@ -139,7 +139,6 @@ dm-store:
       IDAM_USER_BASE_URI: '{{ .Values.global.idamApiUrl }}'
       IDAM_S2S_BASE_URI: '{{ .Release.Name }}-s2s'
 postgresql:
-  fullnameOverride: bsp-postgresql
   persistence:
     enabled: false
   postgresqlUsername: hmcts
@@ -156,7 +155,7 @@ bulkscan:
   dmStore:
     enabled: true
   ccd:
-    enabled: true
+    enabled: false
 bsp:
   servicebus:
     enabled: true
