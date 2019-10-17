@@ -24,6 +24,9 @@ jobs:
       chartName: bulk-scan
       chartReleaseName: chart-bulk-scan-ci-test
       chartNamespace: chart-tests
+      helmDeleteWait: "300"
+      helmInstallWait: "300"
+      helmInstallTimeout: "600"
 
 - job: Release
   # Make sure we have a tag to run this job
