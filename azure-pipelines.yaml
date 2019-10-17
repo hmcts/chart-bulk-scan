@@ -21,7 +21,7 @@ jobs:
   steps:
   - template: steps/charts/validate.yaml@cnp-library
     parameters:
-      chartName: java
+      chartName: bulk-scan
       chartReleaseName: chart-bulk-scan-ci-test
       chartNamespace: chart-tests
 
@@ -38,6 +38,6 @@ jobs:
   steps:
   - template: steps/charts/release.yaml@cnp-library
     parameters:
-      chartName: java
+      chartName: bulk-scan
       chartReleaseName: chart-bulk-scan
       chartNamespace: chart-tests
