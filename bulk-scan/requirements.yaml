@@ -1,9 +1,9 @@
 dependencies:
   - name: bulk-scan-processor
-    version: ~0.2.3
+    version: ~0.2.5
     repository: '@hmctspublic'
   - name: bulk-scan-orchestrator
-    version: ~0.1.6
+    version: ~0.1.7
     repository: '@hmctspublic'
   - name: rpe-service-auth-provider
     version: ~0.2.4
