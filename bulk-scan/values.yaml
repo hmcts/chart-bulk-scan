@@ -4,7 +4,7 @@ bulk-scan-processor:
     releaseNameOverride: "{{ .Release.Name }}-bsp"
     secrets:
       SB_CONN_STRING:
-        secretRef: servicebus-secret-namespace-{{ .Release.Name }}
+        secretRef: servicebus-secret-namespace-{{ .Release.Name }}-sb
         key: connectionString
       TEST_STORAGE_ACCOUNT_NAME:
         secretRef: storage-secret-{{ .Release.Name }}
@@ -50,7 +50,7 @@ bulk-scan-processor:
       DOCUMENT_MANAGEMENT_URL: "{{ .Release.Name }}-dm-store"
       DELETE_REJECTED_FILES_ENABLED: "false"
   servicebus:
-    nameoverdide:
+    releaseNameOverride: "{{ .Release.Name }}-sb"
     resourceGroup: bulk-scan-aks
     teamName: "Software Engineering"
     location: uksouth
@@ -76,7 +76,7 @@ bulk-scan-orchestrator:
     ingressHost: ""
     secrets:
       SB_CONN_STRING:
-        secretRef: servicebus-secret-namespace-{{ .Release.Name }}
+        secretRef: servicebus-secret-namespace-{{ .Release.Name }}-sb
         key: connectionString
     environment:
       ENVELOPES_QUEUE_CONNECTION_STRING: "$(SB_CONN_STRING);EntityPath=envelopes"
