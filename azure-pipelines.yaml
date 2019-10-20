@@ -22,7 +22,7 @@ jobs:
   - template: steps/charts/validate.yaml@cnp-library
     parameters:
       chartName: bulk-scan
-      chartReleaseName: chart-bulk-scan-ci-test
+      chartReleaseName: chart-bulk-scan-ci-release
       chartNamespace: chart-tests
       helmDeleteWait: "300"
       helmInstallWait: "300"
