@@ -27,6 +27,7 @@ jobs:
       helmDeleteWait: "300"
       helmInstallWait: "300"
       helmInstallTimeout: "900"
+      helmTestTimeout: "900"
 
 - job: Release
   # Make sure we have a tag to run this job
