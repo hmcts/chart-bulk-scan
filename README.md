@@ -2,7 +2,7 @@
 
 Helm chart for Bulk Scan product
 
-[![Build Status](https://dev.azure.com/hmcts/CNP/_apis/build/status/Helm%20Charts/chart-bulk-scan?branchName=master)](https://dev.azure.com/hmcts/CNP/_build/latest?definitionId=234&branchName=master)
+[![Build Status](https://dev.azure.com/hmcts/CNP/_apis/build/status/Helm%20Charts/chart-bulk-scan)](https://dev.azure.com/hmcts/CNP/_build/latest?definitionId=234)
 
 This chart installs Bulk scan product ( Processor and Orchestractor ) with optional dependant services. 
 
