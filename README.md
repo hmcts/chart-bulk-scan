@@ -8,9 +8,9 @@ This chart installs Bulk scan product ( Processor and Orchestractor ) with optio
 
 ## Usage FAQ
 
-**Question:** How do i use bulk scan chart in my product chart/ application. 
+**Question:** How do I use bulk scan chart in my product chart/ application. 
 
-**Answer:** Add bulk-scan chart to `requirement.yaml` and configure below global properties 
+**Answer:** Add bulk-scan chart to `requirements.yaml` and configure below global properties:
 
 ```yaml
 global:
@@ -20,7 +20,7 @@ global:
 ````
 
 ##
-**Q:** Can i enable and use CCD Chart that comes with Bulk scan chart
+**Q:** Can I enable and use CCD Chart that comes with Bulk scan chart
 
 **A.** You can use it, but note that it's not fully configured and you need to override ccd config as per chart-ccd. 
 
