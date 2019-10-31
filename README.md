@@ -38,37 +38,23 @@ postgresql:
 ````
 ##
 **Q:** I already have a dm-store installation in my product chart, how do i reuse it.
-**A.** You need to override below environment variables with relevant dm-store url 
+**A.** You need to override below global variable with relevant dm-store url 
 
 ```yaml
-bulk-scan-processor:
-  java:
-    environment:
-      DOCUMENT_MANAGEMENT_URL: "{{ .Release.Name }}-dm-store"
-bulk-scan-orchestrator:
-  java:
-    environment:
-      DOCUMENT_MANAGEMENT_URL: "{{ .Release.Name }}-dm-store"
+global:
+  global:
+    dmstoreUrl: "myrelease-dm-store"
 ````
 and disable the one shipped by dm-store setting `bulkscan.dmStore.enabled` to `false`
 
 ##
 **Q:** I already have a s2s dependency already in my product chart, how do i reuse it.
-**A.** You need to override below environment variables with relevant s2s url
+**A.** You need to override below global variable with relevant s2s url
 
 ```yaml
-bulk-scan-processor:
-  java:
-    environment:
-      S2S_URL: "{{ .Release.Name }}-s2s"
-bulk-scan-orchestrator:
-  java:
-    environment:
-       S2S_URL: "{{ .Release.Name }}-s2s"
-dm-store:
-  java:
-    environment:
-      IDAM_S2S_BASE_URI: '{{ .Release.Name }}-s2s'
+global:
+  global:
+    s2sUrl: "myrelease-s2s"
 ````
 
 Also, set below secrets to s2s installation:
