@@ -42,8 +42,7 @@ postgresql:
 
 ```yaml
 global:
-  global:
-    dmstoreUrl: "myrelease-dm-store"
+  dmstoreUrl: "myrelease-dm-store"
 ````
 and disable the one shipped by dm-store setting `bulkscan.dmStore.enabled` to `false`
 
@@ -53,8 +52,7 @@ and disable the one shipped by dm-store setting `bulkscan.dmStore.enabled` to `f
 
 ```yaml
 global:
-  global:
-    s2sUrl: "myrelease-s2s"
+  s2sUrl: "myrelease-s2s"
 ````
 
 Also, set below secrets to s2s installation:
