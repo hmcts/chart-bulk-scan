@@ -5,6 +5,7 @@ dependencies:
   - name: bulk-scan-orchestrator
     version: ~0.1.9
     repository: '@hmctspublic'
+    condition: bulkscan.orchestrator.enabled
   - name: rpe-service-auth-provider
     version: ~0.2.4
     repository: '@hmctspublic'
