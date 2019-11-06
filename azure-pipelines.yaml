@@ -23,7 +23,7 @@ jobs:
     parameters:
       chartName: bulk-scan
       chartReleaseName: chart-bulk-scan-ci-release
-      chartNamespace: chart-tests
+      chartNamespace: bsp
       helmDeleteWait: "300"
       helmInstallWait: "300"
       helmInstallTimeout: "900"
