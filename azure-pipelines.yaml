@@ -44,4 +44,3 @@ jobs:
     parameters:
       chartName: bulk-scan
       chartReleaseName: chart-bulk-scan
-      chartNamespace: chart-tests
