@@ -1,13 +1,13 @@
 dependencies:
   - name: bulk-scan-processor
-    version: ~0.2.6
+    version: ~0.2.13
     repository: '@hmctspublic'
   - name: bulk-scan-orchestrator
-    version: ~0.1.9
+    version: ~0.2.1
     repository: '@hmctspublic'
     condition: bulkscan.orchestrator.enabled
   - name: rpe-service-auth-provider
-    version: ~0.2.4
+    version: ~0.2.5
     repository: '@hmctspublic'
     condition: bulkscan.s2s.enabled
   - name: postgresql
@@ -15,7 +15,7 @@ dependencies:
     repository: '@stable'
     condition: bulkscan.postgresql.enabled
   - name: dm-store
-    version: ~2.0.2
+    version: ~2.0.6
     repository: '@hmctspublic'
     condition: bulkscan.dmStore.enabled
   - name: ccd
