@@ -1,6 +1,6 @@
 dependencies:
   - name: bulk-scan-processor
-    version: ~0.2.13
+    version: ~0.2.14
     repository: '@hmctspublic'
   - name: bulk-scan-orchestrator
     version: ~0.2.1
