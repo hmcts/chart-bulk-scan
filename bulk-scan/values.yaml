@@ -22,7 +22,7 @@ bulk-scan-processor:
         secretRef: storage-secret-{{ .Release.Name }}
         key: accessKey
     environment:
-      STORAGE_URL: "https://bulkscanning.demo.platform.hmcts.net"
+      STORAGE_URL: "https://bulk-scanning.demo.platform.hmcts.net"
       QUEUE_ENVELOPE_SEND: "$(SB_CONN_STRING);EntityPath=envelopes"
       QUEUE_NOTIFICATIONS_SEND: "$(SB_CONN_STRING);EntityPath=notifications"
       QUEUE_NOTIFICATIONS_READ: "$(SB_CONN_STRING);EntityPath=notifications"
