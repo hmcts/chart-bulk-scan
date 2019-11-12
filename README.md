@@ -11,7 +11,7 @@ This chart installs Bulk scan product ( Processor and Orchestractor ) with optio
 **Question:** How do I use bulk scan chart in my product chart/ application. 
 
 **Answer:** Add bulk-scan chart to `requirements.yaml` and configure below global properties:
-
+and you need to have "bsp-storage-account-creds" sealed secret under your namespace, ask BSP team to get support.
 ```yaml
 global:
   idamApiUrl: "https://idam-api.aat.platform.hmcts.net"
