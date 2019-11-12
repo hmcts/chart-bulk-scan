@@ -16,13 +16,13 @@ bulk-scan-processor:
         secretRef: container-secret-{{ .Release.Name }}-bulkscan
         key: containerName
       STORAGE_ACCOUNT_NAME:
-        secretRef: storage-secret-{{ .Release.Name }}
+        secretRef: bsp-storage-account-creds
         key: storageAccountName
       STORAGE_KEY:
-        secretRef: storage-secret-{{ .Release.Name }}
+        secretRef: bsp-storage-account-creds
         key: accessKey
     environment:
-      STORAGE_URL: "https://bulkscanning.demo.platform.hmcts.net"
+      STORAGE_URL: "https://bulk-scanning.demo.platform.hmcts.net"
       QUEUE_ENVELOPE_SEND: "$(SB_CONN_STRING);EntityPath=envelopes"
       QUEUE_NOTIFICATIONS_SEND: "$(SB_CONN_STRING);EntityPath=notifications"
       QUEUE_NOTIFICATIONS_READ: "$(SB_CONN_STRING);EntityPath=notifications"
@@ -160,7 +160,7 @@ bsp:
   servicebus:
     enabled: true
   blobstorage:
-    enabled: true
+    enabled: false
 bso:
   servicebus:
     enabled: false
