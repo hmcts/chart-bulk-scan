@@ -16,10 +16,10 @@ bulk-scan-processor:
         secretRef: container-secret-{{ .Release.Name }}-bulkscan
         key: containerName
       STORAGE_ACCOUNT_NAME:
-        secretRef: storage-secret-{{ .Release.Name }}
+        secretRef: bsp-storage-account-creds
         key: storageAccountName
       STORAGE_KEY:
-        secretRef: storage-secret-{{ .Release.Name }}
+        secretRef: bsp-storage-account-creds
         key: accessKey
     environment:
       STORAGE_URL: "https://bulk-scanning.demo.platform.hmcts.net"
@@ -160,7 +160,7 @@ bsp:
   servicebus:
     enabled: true
   blobstorage:
-    enabled: true
+    enabled: false
 bso:
   servicebus:
     enabled: false
