@@ -37,8 +37,8 @@ bulk-scan-processor:
       FLYWAY_NOOP_STRATEGY: "false"
       PROCESS_PAYMENTS_ENABLED: "false"
       S2S_SECRET: AAAAAAAAAAAAAAAA
-      S2S_URL: "{{ .Release.Name }}-s2s"
-      DOCUMENT_MANAGEMENT_URL: "{{ .Release.Name }}-dm-store"
+      S2S_URL: "http://{{ .Release.Name }}-s2s"
+      DOCUMENT_MANAGEMENT_URL: "http://{{ .Release.Name }}-dm-store"
       DELETE_REJECTED_FILES_ENABLED: "false"
   servicebus:
     releaseNameOverride: "{{ .Release.Name }}-sb"
@@ -78,11 +78,11 @@ bulk-scan-orchestrator:
       DELETE_ENVELOPES_DLQ_MESSAGES_ENABLED: "true"
       DELETE_ENVELOPES_DLQ_MESSAGES_CRON: "0 * * * * *"
       DELETE_ENVELOPES_DLQ_MESSAGES_TTL: "10s"
-      S2S_URL: "{{ .Release.Name }}-s2s"
+      S2S_URL: "http://{{ .Release.Name }}-s2s"
       IDAM_API_URL: "{{ .Values.global.idamApiUrl }}"
       IDAM_CLIENT_REDIRECT_URI: "{{ .Values.global.bsoIdamRedirectUrl }}"
       CORE_CASE_DATA_API_URL: "{{ .Values.global.ccdDataStoreUrl }}"
-      DOCUMENT_MANAGEMENT_URL: "{{ .Release.Name }}-dm-store"
+      DOCUMENT_MANAGEMENT_URL: "http://{{ .Release.Name }}-dm-store"
   servicebus:
     resourceGroup: bulk-scan-aks
     teamName: "Software Engineering"
