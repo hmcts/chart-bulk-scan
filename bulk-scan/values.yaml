@@ -6,15 +6,6 @@ bulk-scan-processor:
       SB_CONN_STRING:
         secretRef: servicebus-secret-namespace-{{ .Release.Name }}-sb
         key: connectionString
-      TEST_STORAGE_ACCOUNT_NAME:
-        secretRef: storage-secret-{{ .Release.Name }}
-        key: storageAccountName
-      TEST_STORAGE_ACCOUNT_KEY:
-        secretRef: storage-secret-{{ .Release.Name }}
-        key: accessKey
-      TEST_STORAGE_CONTAINER_NAME:
-        secretRef: container-secret-{{ .Release.Name }}-bulkscan
-        key: containerName
       STORAGE_ACCOUNT_NAME:
         secretRef: bsp-storage-account-creds
         key: storageAccountName
