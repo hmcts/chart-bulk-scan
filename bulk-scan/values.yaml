@@ -51,6 +51,16 @@ bulk-scan-processor:
         - name: envelopes
         - name: notifications
         - name: processed-envelopes
+
+  blobstorage:
+    resourceGroup: bulk-scan-aks
+    teamName: "Software Engineering"
+    location: ukwest
+    setup:
+      containers:
+        - bulkscan
+        - bulkscan-rejected
+        - sscs
 bulk-scan-orchestrator:
   java:
     releaseNameOverride: "{{ .Release.Name }}-bso"
@@ -102,11 +112,11 @@ dm-store:
     livenessDelay: 180
     secrets:
       STORAGE_ACCOUNT_NAME:
-        secretRef: storage-secret-{{ .Release.Name }}-blobstorage
-        key: storageAccountName
+        disabled: true
       STORAGE_ACCOUNT_KEY:
-        secretRef: storage-secret-{{ .Release.Name }}-blobstorage
-        key: accessKey
+        disabled: true
+      STORAGE_CONTAINER_DOCUMENT_CONTAINER_NAME:
+        disabled: true
     keyVaults: {}
     environment:
       ENABLE_DB_MIGRATE: 'true'
@@ -116,21 +126,9 @@ dm-store:
       SPRING_DATASOURCE_PASSWORD: '{{ .Values.global.postgresqlPassword }}'
       ENABLE_AZURE_STORAGE_CONTAINER: 'false'
       POSTGRES_STORAGE_ENABLED: 'true'
-      STORAGEACCOUNT_PRIMARY_CONNECTION_STRING: "DefaultEndpointsProtocol=https;AccountName=$(STORAGE_ACCOUNT_NAME);AccountKey=$(STORAGE_ACCOUNT_KEY);EndpointSuffix=core.windows.net"
-      STORAGE_CONTAINER_DOCUMENT_CONTAINER_NAME: dm-store
+      STORAGEACCOUNT_PRIMARY_CONNECTION_STRING: 'DefaultEndpointsProtocol=https;AccountName=AAAAAAAAAAAAAAAA;AccountKey=AAAAAAAAAAAAAAAA;EndpointSuffix=core.windows.net'
       IDAM_USER_BASE_URI: '{{ .Values.global.idamApiUrl }}'
       IDAM_S2S_BASE_URI: '{{ .Release.Name }}-s2s'
-  blobstorage:
-    enabled: true
-    resourceGroup: bulk-scan-aks
-    teamName: "Software Engineering"
-    location: ukwest
-    setup:
-      containers:
-        - bulkscan
-        - bulkscan-rejected
-        - sscs
-        - dm-store
 postgresql:
   persistence:
     enabled: false
