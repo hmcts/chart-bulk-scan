@@ -11,15 +11,15 @@ bulk-scan-processor:
       STORAGE_KEY:
         secretRef: storage-secret-{{ .Release.Name }}
         key: accessKey
-   blobstorage:
+  blobstorage:
     resourceGroup: bulk-scan-aks
     teamName: "Software Engineering"
     location: ukwest
     setup:
-       containers:
-         - bulkscan
-         - bulkscan-rejected
-         - sscs
+      containers:
+        - bulkscan
+        - bulkscan-rejected
+        - sscs
 ccd:
   postgresql:
     enabled: false
