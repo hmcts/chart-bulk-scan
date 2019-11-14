@@ -127,9 +127,6 @@ dm-store:
     location: ukwest
     setup:
       containers:
-        - bulkscan
-        - bulkscan-rejected
-        - sscs
         - dm-store
 postgresql:
   persistence:
