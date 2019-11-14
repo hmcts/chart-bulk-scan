@@ -4,6 +4,9 @@ global:
   ccdDataStoreUrl: "http://ccd-data-store"
 bulk-scan-processor:
   java:
+    environment:
+      STORAGE_BLOB_SELECTED_CONTAINER: "bulkscan"
+      STORAGE_URL: "https://$(STORAGE_ACCOUNT_NAME).blob.core.windows.net"
     secrets:
       STORAGE_ACCOUNT_NAME:
         secretRef: storage-secret-{{ .Release.Name }}
@@ -11,6 +14,16 @@ bulk-scan-processor:
       STORAGE_KEY:
         secretRef: storage-secret-{{ .Release.Name }}
         key: accessKey
+  blobstorage:
+    resourceGroup: bulk-scan-aks
+    teamName: "Software Engineering"
+    location: ukwest
+    setup:
+      containers:
+        - bulkscan
+        - bulkscan-rejected
+        - sscs
+        - dm-store
 ccd:
   postgresql:
     enabled: false
@@ -39,10 +52,10 @@ bulkscan:
     enabled: true
 bsp:
   blobstorage:
-    enabled: false
+    enabled: true
 dm-store:
   blobstorage:
-    enabled: true
+    enabled: false
 postgresql:
   initdbScripts:
     init.sql: |-

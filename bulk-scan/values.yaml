@@ -103,10 +103,10 @@ dm-store:
     livenessDelay: 180
     secrets:
       STORAGE_ACCOUNT_NAME:
-        secretRef: storage-secret-{{ .Release.Name }}-blobstorage
+        secretRef: storage-secret-{{ .Release.Name }}
         key: storageAccountName
       STORAGE_ACCOUNT_KEY:
-        secretRef: storage-secret-{{ .Release.Name }}-blobstorage
+        secretRef: storage-secret-{{ .Release.Name }}
         key: accessKey
     keyVaults: {}
     environment:
