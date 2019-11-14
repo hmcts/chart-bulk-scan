@@ -4,6 +4,8 @@ global:
   ccdDataStoreUrl: "http://ccd-data-store"
 bulk-scan-processor:
   java:
+    environment:
+      STORAGE_BLOB_SELECTED_CONTAINER: "bulkscan"
     secrets:
       STORAGE_ACCOUNT_NAME:
         secretRef: storage-secret-{{ .Release.Name }}
