@@ -48,10 +48,10 @@ bulkscan:
     enabled: true
 bsp:
   blobstorage:
-    enabled: false
+    enabled: true
 dm-store:
   blobstorage:
-    enabled: true
+    enabled: false
 postgresql:
   initdbScripts:
     init.sql: |-
