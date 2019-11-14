@@ -22,6 +22,7 @@ bulk-scan-processor:
         - bulkscan
         - bulkscan-rejected
         - sscs
+        - dm-store
 ccd:
   postgresql:
     enabled: false
