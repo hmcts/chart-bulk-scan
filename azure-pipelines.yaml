@@ -25,7 +25,7 @@ jobs:
       chartName: bulk-scan
       chartReleaseName: chart-bulk-scan-ci-release
       chartNamespace: bsp
-      helmDeleteWait: "300"
+      helmDeleteWait: "200"
       helmInstallWait: "300"
       helmInstallTimeout: "900"
       helmTestTimeout: "900"
