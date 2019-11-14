@@ -51,6 +51,10 @@ bulk-scan-processor:
         - name: envelopes
         - name: notifications
         - name: processed-envelopes
+
+  blobstorage:
+    resourceGroup: bulk-scan-aks
+
 bulk-scan-orchestrator:
   java:
     releaseNameOverride: "{{ .Release.Name }}-bso"
