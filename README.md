@@ -1,6 +1,6 @@
 # chart-bulk-scan
 
-Helm chart for Bulk Scan product
+Helm chart for Bulk Scan product.
 
 [![Build Status](https://dev.azure.com/hmcts/CNP/_apis/build/status/Helm%20Charts/chart-bulk-scan)](https://dev.azure.com/hmcts/CNP/_build/latest?definitionId=234)
 
