@@ -29,7 +29,7 @@ ccd:
     enabled: false
   rpeServiceAuthProvider:
     enabled: true
-  draftStoreService:
+  draftStore:
     enabled: false
   dmStore:
     enabled: false
@@ -46,6 +46,14 @@ ccd:
   activityApi:
     enabled: false
   testStubsService:
+    enabled: false
+  definitionImporter:
+    enabled: false
+  userProfileImporter:
+    enabled: false
+  blobstorage:
+    enabled: false
+  emAnnotation:
     enabled: false
 bulkscan:
   ccd:
