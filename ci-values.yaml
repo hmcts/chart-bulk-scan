@@ -24,6 +24,10 @@ bulk-scan-processor:
         - bulkscan-rejected
         - sscs
         - dm-store
+ccd-user-profile-api:
+  java:
+    ingressHost: ""
+    releaseNameOverride: "{{ .Release.Name }}-bsp"
 ccd:
   postgresql:
     enabled: false
