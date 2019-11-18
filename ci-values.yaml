@@ -24,15 +24,15 @@ bulk-scan-processor:
         - bulkscan-rejected
         - sscs
         - dm-store
-ccd-user-profile-api:
-  java:
-    ingressHost: ""
-    releaseNameOverride: "{{ .Release.Name }}-bsp"
-ccd-data-store-api:
-  java:
-    ingressHost: ""
-    releaseNameOverride: "{{ .Release.Name }}-bsp"
 ccd:
+  ccd-user-profile-api:
+    java:
+      ingressHost: ""
+      releaseNameOverride: "{{ .Release.Name }}-ccd-user-profile-api"
+  ccd-data-store-api:
+    java:
+      ingressHost: ""
+      releaseNameOverride: "{{ .Release.Name }}-ccd-data-store-api"
   postgresql:
     enabled: false
   rpeServiceAuthProvider:
