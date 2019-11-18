@@ -28,6 +28,10 @@ ccd-user-profile-api:
   java:
     ingressHost: ""
     releaseNameOverride: "{{ .Release.Name }}-bsp"
+ccd-data-store-api:
+  java:
+    ingressHost: ""
+    releaseNameOverride: "{{ .Release.Name }}-bsp"
 ccd:
   postgresql:
     enabled: false
