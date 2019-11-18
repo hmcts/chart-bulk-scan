@@ -163,6 +163,7 @@ global:
   idamApiUrl: "https://idam-api.aat.platform.hmcts.net"
   idamWebUrl: idam-web-public.aat.platform.hmcts.net
   ccdDataStoreUrl: "http://ccd-data-store"
-  ccdApiGatewayIngress:
+  ccdApiGatewayIngress: ""
   ccdCaseManagementWebIngress:
   ccdAdminWebIngress:
+
