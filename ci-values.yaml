@@ -27,8 +27,8 @@ bulk-scan-processor:
 ccd:
   postgresql:
     enabled: false
-  rpeServiceAuthProvider:
-    enabled: true
+  s2s:
+    enabled: false
   draftStore:
     enabled: false
   dmStore:
@@ -54,6 +54,8 @@ ccd:
   blobstorage:
     enabled: false
   emAnnotation:
+    enabled: false
+  ccpay:
     enabled: false
 bulkscan:
   ccd:
