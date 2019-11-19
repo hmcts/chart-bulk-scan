@@ -1,10 +1,8 @@
 global:
   idamApiUrl: "https://idam-api.aat.platform.hmcts.net"
   idamWebUrl: idam-web-public.aat.platform.hmcts.net
-  ccdDataStoreUrl: "http://{{ .Release.Name }}-ccd-data-store-api"
-  ccdDefinitionStoreUrl: "http://{{ .Release.Name }}-ccd-definition-store"
-  ccdUserProfileUrl: "http://{{ .Release.Name }}-ccd-user-profile-api"
-  dmStoreUrl: "http://{{ .Release.Name }}-dm-store"
+  devMode: true
+
 
 bulk-scan-processor:
   java:

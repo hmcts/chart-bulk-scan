@@ -162,7 +162,10 @@ global:
   bsoIdamRedirectUrl: "https://bulk-scan-orchestrator/oauth2/callback"
   idamApiUrl: "https://idam-api.aat.platform.hmcts.net"
   idamWebUrl: idam-web-public.aat.platform.hmcts.net
-  ccdDataStoreUrl: "http://ccd-data-store"
+  ccdDataStoreUrl: "http://{{ .Release.Name }}-ccd-data-store-api"
+  ccdDefinitionStoreUrl: "http://{{ .Release.Name }}-ccd-definition-store"
+  ccdUserProfileUrl: "http://{{ .Release.Name }}-ccd-user-profile-api"
+  dmStoreUrl: "http://{{ .Release.Name }}-dm-store"
   ccdApiGatewayIngress: ""
   ccdCaseManagementWebIngress: ""
   ccdAdminWebIngress: ""
