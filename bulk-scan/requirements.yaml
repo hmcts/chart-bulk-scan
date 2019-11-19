@@ -15,10 +15,10 @@ dependencies:
     repository: '@stable'
     condition: bulkscan.postgresql.enabled
   - name: dm-store
-    version: ~2.0.3
+    version: ~2.0.7
     repository: '@hmctspublic'
     condition: bulkscan.dmStore.enabled
   - name: ccd
-    version: 4.0.0-rc.2
+    version: 4.0.0-rc.6
     repository: '@hmctspublic'
     condition: bulkscan.ccd.enabled

@@ -25,14 +25,6 @@ bulk-scan-processor:
         - sscs
         - dm-store
 ccd:
-  ccd-user-profile-api:
-    java:
-      ingressHost: ""
-      releaseNameOverride: "{{ .Release.Name }}-ccd-user-profile-api"
-  ccd-data-store-api:
-    java:
-      ingressHost: ""
-      releaseNameOverride: "{{ .Release.Name }}-ccd-data-store-api"
   postgresql:
     enabled: false
   rpeServiceAuthProvider:
