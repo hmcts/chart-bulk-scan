@@ -30,7 +30,7 @@ ccd:
   postgresql:
     enabled: false
   s2s:
-    enabled: false
+    enabled: true
   draftStore:
     enabled: false
   dmStore:
@@ -62,6 +62,8 @@ ccd:
 bulkscan:
   ccd:
     enabled: true
+  s2s:
+    enabled: false
 bsp:
   blobstorage:
     enabled: true
