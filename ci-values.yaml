@@ -26,6 +26,7 @@ bulk-scan-processor:
         - bulkscan-rejected
         - sscs
         - dm-store
+        - definition-store
 ccd:
   postgresql:
     enabled: false
@@ -59,6 +60,16 @@ ccd:
     enabled: false
   ccpay:
     enabled: false
+  ccd-definition-store-api:
+    java:
+      secrets:
+        STORAGE_ACCOUNT_NAME:
+          secretRef: storage-secret-{{ .Release.Name }}
+          key: storageAccountName
+        STORAGE_ACCOUNT_KEY:
+          secretRef: storage-secret-{{ .Release.Name }}
+          key: accessKey
+
 bulkscan:
   ccd:
     enabled: true
