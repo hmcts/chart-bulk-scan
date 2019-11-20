@@ -72,7 +72,7 @@ bulk-scan-orchestrator:
       S2S_URL: "http://{{ .Release.Name }}-s2s"
       IDAM_API_URL: "{{ .Values.global.idamApiUrl }}"
       IDAM_CLIENT_REDIRECT_URI: "{{ .Values.global.bsoIdamRedirectUrl }}"
-      CORE_CASE_DATA_API_URL: "{{ .Values.global.ccdDataStoreUrl }}"
+      CORE_CASE_DATA_API_URL: "{{tpl .Values.global.ccdDataStoreUrl $}}"
       DOCUMENT_MANAGEMENT_URL: "http://{{ .Release.Name }}-dm-store"
   servicebus:
     resourceGroup: bulk-scan-aks
@@ -156,7 +156,15 @@ bso:
   servicebus:
     enabled: false
 global:
-  devMode: true
   postgresqlUsername: hmcts
   postgresqlPassword: hmcts
   bsoIdamRedirectUrl: "https://bulk-scan-orchestrator/oauth2/callback"
+  idamApiUrl: "https://idam-api.aat.platform.hmcts.net"
+  idamWebUrl: idam-web-public.aat.platform.hmcts.net
+  ccdDataStoreUrl: "http://{{ .Release.Name }}-ccd-data-store-api"
+  ccdDefinitionStoreUrl: "http://{{ .Release.Name }}-ccd-definition-store"
+  ccdUserProfileUrl: "http://{{ .Release.Name }}-ccd-user-profile-api"
+  dmStoreUrl: "http://{{ .Release.Name }}-dm-store"
+  ccdApiGatewayIngress: ""
+  ccdCaseManagementWebIngress: ""
+  ccdAdminWebIngress: ""
