@@ -37,8 +37,17 @@ bulk-scan-payment-processor:
     secrets:
       IDAM_CLIENT_SECRET:
         disabled: true
+      SITE_ID_PROBATE:
+        disabled: true
+      SITE_ID_DIVORCE:
+        disabled: true
+      SITE_ID_FINREM:
+        disabled: true
     environment:
       IDAM_CLIENT_SECRET: XXXXXXXXXX
+      SITE_ID_PROBATE: "XXX2312"
+      SITE_ID_DIVORCE: "XXX2121"
+      SITE_ID_FINREM: "XXX3132"
 ccd:
   postgresql:
     enabled: false

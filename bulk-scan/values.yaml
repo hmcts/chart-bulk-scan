@@ -95,6 +95,19 @@ bulk-scan-payment-processor:
       SB_CONN_STRING:
         secretRef: servicebus-secret-namespace-{{ .Release.Name }}-sb
         key: connectionString
+      IDAM_CLIENT_SECRET:
+        secretRef: bsp-payment-creds
+        key: idam-client-secret
+      SITE_ID_PROBATE:
+        secretRef: bsp-payment-creds
+        key: site-id-probate
+      SITE_ID_DIVORCE:
+        secretRef: bsp-payment-creds
+        key: site-id-divorce
+      SITE_ID_FINREM:
+        secretRef: bsp-payment-creds
+        key: site-id-finrem
+
     environment:
       PAYMENTS_QUEUE_READ_CONNECTION_STRING: "$(SB_CONN_STRING);EntityPath=payments"
       PAY_HUB_URL: "http://{{ .Release.Name }}-payment-api"
@@ -102,9 +115,6 @@ bulk-scan-payment-processor:
       IDAM_API_URL: "{{ .Values.global.idamApiUrl }}"
       S2S_SECRET: AAAAAAAAAAAAAAAA
       S2S_URL: "http://{{ .Release.Name }}-s2s"
-      SITE_ID_PROBATE: "AX2312"
-      SITE_ID_DIVORCE: "XX2121"
-      SITE_ID_FINREM: "XX32132"
 
 rpe-service-auth-provider:
   java:
