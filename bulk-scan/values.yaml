@@ -51,6 +51,7 @@ bulk-scan-processor:
         - name: envelopes
         - name: notifications
         - name: processed-envelopes
+        - name: payments
 
 bulk-scan-orchestrator:
   java:
@@ -86,6 +87,25 @@ bulk-scan-orchestrator:
         - name: processed-envelopes
         - name: payments
 
+bulk-scan-payment-processor:
+  java:
+    releaseNameOverride: "{{ .Release.Name }}-bspp"
+    ingressHost: ""
+    secrets:
+      SB_CONN_STRING:
+        secretRef: servicebus-secret-namespace-{{ .Release.Name }}-sb
+        key: connectionString
+    environment:
+      PAYMENTS_QUEUE_READ_CONNECTION_STRING: "$(SB_CONN_STRING);EntityPath=payments"
+      PAY_HUB_URL: "http://{{ .Release.Name }}-payment-api"
+      CORE_CASE_DATA_API_URL: "{{tpl .Values.global.ccdDataStoreUrl $}}"
+      IDAM_API_URL: "{{ .Values.global.idamApiUrl }}"
+      S2S_SECRET: AAAAAAAAAAAAAAAA
+      S2S_URL: "http://{{ .Release.Name }}-s2s"
+      SITE_ID_PROBATE: "AX2312"
+      SITE_ID_DIVORCE: "XX2121"
+      SITE_ID_FINREM: "XX32132"
+
 rpe-service-auth-provider:
   java:
     ingressHost: ""
@@ -95,6 +115,7 @@ rpe-service-auth-provider:
       TESTING_SUPPORT_ENABLED: 'true'
       MICROSERVICEKEYS_BULK_SCAN_PROCESSOR: AAAAAAAAAAAAAAAA
       MICROSERVICEKEYS_BULK_SCAN_ORCHESTRATOR: AAAAAAAAAAAAAAAA
+      MICROSERVICEKEYS_BULK_SCAN_PAYMENT_PROCESSOR: AAAAAAAAAAAAAAAA
 
 dm-store:
   java:
@@ -138,6 +159,8 @@ postgresql:
   initdbScripts:
     init.sql: |-
       CREATE DATABASE "evidence" WITH OWNER = hmcts ENCODING = 'UTF-8' CONNECTION LIMIT = -1;
+      CREATE DATABASE "payment" WITH OWNER = hmcts ENCODING = 'UTF-8' CONNECTION LIMIT = -1;
+
 bulkscan:
   postgresql:
     enabled: true
@@ -147,6 +170,8 @@ bulkscan:
     enabled: true
   ccd:
     enabled: false
+  payment-processor:
+    enabled: true
 bsp:
   servicebus:
     enabled: true
@@ -155,6 +180,55 @@ bsp:
 bso:
   servicebus:
     enabled: false
+
+bs-payment-processor:
+  servicebus:
+    enabled: false
+
+ccpay:
+  postgresql:
+    enabled: false
+  fees-register-api:
+    enabled: false
+  rpe-service-auth-provider:
+    enabled: false
+  ccpay-bubble-frontend:
+    enabled: false
+  ccpay-bulkscanning-api:
+    enabled: false
+  payment-api:
+    enabled: true
+    java:
+      releaseNameOverride: "{{ .Release.Name }}-payment-api"
+      secrets:
+        PCI_PAL_ACCOUNT_ID_CMC:
+          disabled: true
+        PCI_PAL_ACCOUNT_ID_PROBATE:
+          disabled: true
+        PCI_PAL_ACCOUNT_ID_DIVORCE:
+          disabled: true
+        PCI_PAL_API_URL:
+          disabled: true
+        PCI_PAL_API_KEY:
+          disabled: true
+        GOV_PAY_KEYS_PROBATE:
+          disabled: true
+        GOV_PAY_KEYS_DIVORCE:
+          disabled: true
+        GOV_PAY_KEYS_CMC:
+          disabled: true
+        GOV_PAY_KEYS_REFERENCE:
+          disabled: true
+        LIBERATA_KEYS_OAUTH2_CLIENT_ID:
+          disabled: true
+        LIBERATA_KEYS_OAUTH2_CLIENT_SECRET:
+          disabled: true
+        LIBERATA_KEYS_OAUTH2_USERNAME:
+          disabled: true
+        LIBERATA_KEYS_OAUTH2_PASSWORD:
+          disabled: true
+
+
 global:
   postgresqlUsername: hmcts
   postgresqlPassword: hmcts

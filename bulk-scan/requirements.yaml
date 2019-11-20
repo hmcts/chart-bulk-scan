@@ -6,6 +6,10 @@ dependencies:
     version: ~0.2.1
     repository: '@hmctspublic'
     condition: bulkscan.orchestrator.enabled
+  - name: bulk-scan-payment-processor
+    version: ~0.1.6
+    repository: '@hmctspublic'
+    condition: bulkscan.payment-processor.enabled
   - name: rpe-service-auth-provider
     version: ~0.2.5
     repository: '@hmctspublic'
@@ -22,3 +26,7 @@ dependencies:
     version: 4.0.0-rc.6
     repository: '@hmctspublic'
     condition: bulkscan.ccd.enabled
+  - name: ccpay
+    version: ~0.1.10-alpha
+    repository: '@hmctspublic'
+    condition: bulkscan.ccpay.enabled
