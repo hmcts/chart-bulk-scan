@@ -3,6 +3,11 @@ global:
   idamWebUrl: idam-web-public.aat.platform.hmcts.net
   devMode: true
 
+rpe-service-auth-provider:
+  java:
+    MICROSERVICEKEYS_CCD_ADMIN: AAAAAAAAAAAAAAAA
+    MICROSERVICEKEYS_CCD_DATA: AAAAAAAAAAAAAAAA
+    MICROSERVICEKEYS_CCD_DEFINITION: AAAAAAAAAAAAAAAA
 
 bulk-scan-processor:
   java:
@@ -31,7 +36,7 @@ ccd:
   postgresql:
     enabled: false
   s2s:
-    enabled: true
+    enabled: false
   draftStore:
     enabled: false
   dmStore:
@@ -74,7 +79,7 @@ bulkscan:
   ccd:
     enabled: true
   s2s:
-    enabled: false
+    enabled: true
 bsp:
   blobstorage:
     enabled: true
