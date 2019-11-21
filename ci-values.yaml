@@ -32,6 +32,22 @@ bulk-scan-processor:
         - sscs
         - dm-store
         - definition-store
+bulk-scan-payment-processor:
+  java:
+    secrets:
+      IDAM_CLIENT_SECRET:
+        disabled: true
+      SITE_ID_PROBATE:
+        disabled: true
+      SITE_ID_DIVORCE:
+        disabled: true
+      SITE_ID_FINREM:
+        disabled: true
+    environment:
+      IDAM_CLIENT_SECRET: XXXXXXXXXX
+      SITE_ID_PROBATE: "XXX2312"
+      SITE_ID_DIVORCE: "XXX2121"
+      SITE_ID_FINREM: "XXX3132"
 ccd:
   postgresql:
     enabled: false
@@ -74,6 +90,14 @@ ccd:
         STORAGE_ACCOUNT_KEY:
           secretRef: storage-secret-{{ .Release.Name }}
           key: accessKey
+ccpay:
+  payment-api:
+    java:
+      environment:
+        GOV_PAY_AUTH_KEY_CMC: la0ohpqa9er1bub2hddieeesc6sabbbqn4smkkve7s9ailn3n9d3hbnhc3
+        GOV_PAY_AUTH_KEY_DIVORCE_FRONTEND: la0ohpqa9er1bub2hddieeesc6sabbbqn4smkkve7s9ailn3n9d3hbnhc3
+        GOV_PAY_AUTH_KEY_PROBATE_FRONTEND: la0ohpqa9er1bub2hddieeesc6sabbbqn4smkkve7s9ailn3n9d3hbnhc3
+
 
 bulkscan:
   ccd:
@@ -93,5 +117,5 @@ postgresql:
       CREATE DATABASE "definition-store" WITH OWNER = hmcts ENCODING = 'UTF-8' CONNECTION LIMIT = -1;
       CREATE DATABASE "user-profile" WITH OWNER = hmcts ENCODING = 'UTF-8' CONNECTION LIMIT = -1;
       CREATE DATABASE "draftstore" WITH OWNER = hmcts ENCODING = 'UTF-8' CONNECTION LIMIT = -1;
-      CREATE DATABASE "payment_api" WITH OWNER = hmcts ENCODING = 'UTF-8' CONNECTION LIMIT = -1;
+      CREATE DATABASE "payment" WITH OWNER = hmcts ENCODING = 'UTF-8' CONNECTION LIMIT = -1;
       CREATE DATABASE "evidence" WITH OWNER = hmcts ENCODING = 'UTF-8' CONNECTION LIMIT = -1;
