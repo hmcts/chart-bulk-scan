@@ -61,7 +61,41 @@ bulk-scan-orchestrator:
       SB_CONN_STRING:
         secretRef: servicebus-secret-namespace-{{ .Release.Name }}-sb
         key: connectionString
+      IDAM_CLIENT_SECRET:
+        secretRef: bsp-orchestrator-creds
+        key: idam-client-secret
+      IDAM_USERS_BULKSCAN_USERNAME:
+        secretRef: bsp-orchestrator-creds
+        key: idam-users-bulkscan-username
+      IDAM_USERS_BULKSCAN_PASSWORD:
+        secretRef: bsp-orchestrator-creds
+        key: idam-users-bulkscan-password
+      IDAM_USERS_CMC_USERNAME:
+        secretRef: bsp-orchestrator-creds
+        key: idam-users-cmc-username
+      IDAM_USERS_CMC_PASSWORD:
+        secretRef: bsp-orchestrator-creds
+        key: idam-users-cmc-password
+      IDAM_USERS_DIV_USERNAME:
+        secretRef: bsp-orchestrator-creds
+        key: idam-users-div-username
+      IDAM_USERS_DIV_PASSWORD:
+        secretRef: bsp-orchestrator-creds
+        key: idam-users-div-password
+      IDAM_USERS_PROBATE_USERNAME:
+        secretRef: bsp-orchestrator-creds
+        key: idam-users-probate-username
+      IDAM_USERS_PROBATE_PASSWORD:
+        secretRef: bsp-orchestrator-creds
+        key: idam-users-probate-password
+      IDAM_USERS_SSCS_USERNAME:
+        secretRef: bsp-orchestrator-creds
+        key: idam-users-sscs-username
+      IDAM_USERS_SSCS_PASSWORD:
+        secretRef: bsp-orchestrator-creds
+        key: idam-users-sscs-password
     environment:
+      S2S_SECRET: AAAAAAAAAAAAAAAA
       ENVELOPES_QUEUE_CONNECTION_STRING: "$(SB_CONN_STRING);EntityPath=envelopes"
       ENVELOPES_QUEUE_MAX_DELIVERY_COUNT: "10"
       PROCESSED_ENVELOPES_QUEUE_CONNECTION_STRING: "$(SB_CONN_STRING);EntityPath=processed-envelopes"

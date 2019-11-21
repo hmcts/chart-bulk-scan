@@ -48,6 +48,32 @@ bulk-scan-payment-processor:
       SITE_ID_PROBATE: "XXX2312"
       SITE_ID_DIVORCE: "XXX2121"
       SITE_ID_FINREM: "XXX3132"
+bulk-scan-payment-orchestrator:
+  java:
+    secrets:
+      IDAM_CLIENT_SECRET:
+        disabled: true
+      IDAM_USERS_BULKSCAN_USERNAME:
+        disabled: true
+      IDAM_USERS_BULKSCAN_PASSWORD:
+        disabled: true
+      IDAM_USERS_CMC_USERNAME:
+        disabled: true
+      IDAM_USERS_CMC_PASSWORD:
+        disabled: true
+      IDAM_USERS_DIV_USERNAME:
+        disabled: true
+      IDAM_USERS_DIV_PASSWORD:
+        disabled: true
+      IDAM_USERS_PROBATE_USERNAME:
+        disabled: true
+      IDAM_USERS_PROBATE_PASSWORD:
+        disabled: true
+      IDAM_USERS_SSCS_USERNAME:
+        disabled: true
+      IDAM_USERS_SSCS_PASSWORD:
+        disabled: true
+
 ccd:
   postgresql:
     enabled: false
