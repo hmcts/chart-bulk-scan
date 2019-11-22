@@ -277,8 +277,8 @@ global:
   postgresqlUsername: hmcts
   postgresqlPassword: hmcts
   bsoIdamRedirectUrl: "https://bulk-scan-orchestrator/oauth2/callback"
-  idamApiUrl: "https://idam-api.aat.platform.hmcts.net"
-  idamWebUrl: idam-web-public.aat.platform.hmcts.net
+  idamApiUrl: "https://idam-api.demo.platform.hmcts.net"
+  idamWebUrl: idam-web-public.demo.platform.hmcts.net
   ccdDataStoreUrl: "http://{{ .Release.Name }}-ccd-data-store-api"
   ccdDefinitionStoreUrl: "http://{{ .Release.Name }}-ccd-definition-store"
   ccdUserProfileUrl: "http://{{ .Release.Name }}-ccd-user-profile-api"
