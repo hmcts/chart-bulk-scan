@@ -276,7 +276,7 @@ ccpay:
 global:
   postgresqlUsername: hmcts
   postgresqlPassword: hmcts
-  bsoIdamRedirectUrl: "https://bulk-scan-orchestrator/oauth2/callback"
+  bsoIdamRedirectUrl: "https://bulk-scan-orchestrator-demo.service.core-compute-demo.internal/oauth2/callback"
   idamApiUrl: "https://idam-api.demo.platform.hmcts.net"
   idamWebUrl: idam-web-public.demo.platform.hmcts.net
   ccdDataStoreUrl: "http://{{ .Release.Name }}-ccd-data-store-api"
